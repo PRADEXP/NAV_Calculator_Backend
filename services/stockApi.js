@@ -1,4 +1,5 @@
-const STOCK_API_URL = "http://localhost:8787";
+const STOCK_API_URL =
+    process.env.STOCK_API_URL || "http://localhost:8787";
 
 async function getStockPrices(symbols) {
 
@@ -19,9 +20,7 @@ async function getStockPrices(symbols) {
         );
     }
 
-    const result = await response.json();
-
-    return result;
+    return await response.json();
 }
 
 module.exports = {
